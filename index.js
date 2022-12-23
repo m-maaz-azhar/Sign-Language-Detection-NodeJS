@@ -2,13 +2,24 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const fs = require("fs");
 const multer = require("multer");
-const upload = multer({ dest: "uploads/" });
+const path = require("path");
 const { ImageToText } = require("./controller/ImageToVoice.controller");
 const { SpeechToText } = require("./controller/SpeechToText.controller");
 
 const app = express();
 
 app.use(bodyParser.json());
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "uploads/");
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + path.extname(file.originalname)); //Appending extension
+  },
+});
+
+const upload = multer({ storage: storage });
 
 app.get("/", (req, res) => {
   res.json({ message: "Running..." });
