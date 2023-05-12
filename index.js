@@ -35,6 +35,6 @@ app.post("/speech-to-text", upload.single("fileData"), async (req, res) => {
   res.json({ result });
 });
 
-app.listen(process.env.PORT || 3000, () =>
-  console.log("SERVER IS RUNNING AT 5000")
+app.listen(process.env.PORT || 80, () =>
+  console.log("SERVER IS RUNNING AT 80")
 );

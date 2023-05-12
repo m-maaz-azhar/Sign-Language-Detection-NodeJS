@@ -1,4 +1,3 @@
-const ReadText = require("text-from-image");
 const fs = require("fs");
 const tesseract = require("node-tesseract-ocr");
 const gTTS = require("gtts");
