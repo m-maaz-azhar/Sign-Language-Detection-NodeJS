@@ -1,7 +1,7 @@
 const { Deepgram } = require("@deepgram/sdk");
 const fs = require("fs");
 
-const deepgramApiKey = "f5b116b1e1e28892b2f40da211440abba0ca474f";
+const deepgramApiKey = "";
 
 const SpeechToText = (pathToFile) => {
   return new Promise(async function (resolve, reject) {
